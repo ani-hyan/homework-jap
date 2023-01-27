@@ -1,0 +1,5 @@
+# ignore ALL .xml files
+*.xml
+*.iml
+# ignore ALL files in ANY directory named temp
+out/
