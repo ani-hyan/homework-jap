@@ -1,10 +1,12 @@
 package homework_5;
 
+import java.util.Random;
 import java.util.Scanner;
 
 public class homework_5 {
     static Scanner sc = new Scanner(System.in);
     public static void main(String[] args){
+
         multTable();
         System.out.println(power());
         System.out.println(recursive(5, 0));
@@ -16,11 +18,15 @@ public class homework_5 {
         armstrong();
         System.out.println(sumOfSeries1());
         System.out.println(sumOfSeries2());
+        guess();
         rectangle(5);
         triangle1(5);
         triangle2(5);
         triangle3(5);
         triangle4(5);
+        triangle5(5);
+        System.out.println(sin(1,10));
+        System.out.println(cos(1,4));
     }
 
     public static void multTable(){
@@ -174,6 +180,27 @@ public class homework_5 {
         return sum;
     }
 
+    public static void guess(){
+        Random rd = new Random();
+        Scanner sc = new Scanner(System.in);
+        int n = rd.nextInt();
+        System.out.println(n);
+
+        System.out.println("enter your guess: ");
+        int m = sc.nextInt();
+        do{
+            if(m < n) {
+                System.out.println("Too low, try again");
+            }
+            else if (m > n) {
+                System.out.println("Too high, try again");
+            }
+            System.out.println("enter your guess: ");
+            m = sc.nextInt();
+        }while (m != n);
+        System.out.println("Success!");
+    }
+
     public static void rectangle(int n){
         for(int i = 0; i < n; i++){
             for(int j = 0; j < n; j++)
@@ -243,4 +270,40 @@ public class homework_5 {
         }
     }
 
+    /*
+    sinx = x - x^3/3! + x^5/5! - x^7/7!...
+       */
+    public static double sin(int x, int n){
+        double result = 0.0;
+        int sign = -1;
+
+        for(int i = 1; i <= n; i += 2){
+            double fact = 1;
+            int power = 1;
+            for(int k = 1; k <= i; k++){
+                fact *= k;
+                power *= x;
+            }
+            sign *= -1;
+            result += sign * power/fact;
+        }
+        return result;
+    }
+
+    public static double cos(int x, int n){
+        double result = 1;
+        int sign = -1;
+
+        for(int i = 2; i <= n; i += 2){
+            double fact = 1;
+            int power = 1;
+            for(int k = 1; k <= i; k++){
+                fact *= k;
+                power *= x;
+            }
+            result += sign * power/fact;
+            sign *= -1;
+        }
+        return result;
+    }
 }
