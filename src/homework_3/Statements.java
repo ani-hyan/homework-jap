@@ -1,5 +1,7 @@
 package homework_3;
 
+import java.math.BigInteger;
+
 public class Statements {
     public static void main(String[] args){
         System.out.println(isEven(67));
@@ -9,7 +11,7 @@ public class Statements {
         System.out.println(isSeven(173));
         System.out.println(isInsideTheCircle(6,9));
         theLargest(3,-1, 5);
-        System.out.println(isLeapYear(1900));
+        System.out.println(isLeapYear(404) + " leap");
 
         int x = 0;
         while(x++ < 10){
@@ -43,7 +45,7 @@ public class Statements {
         square(4);
         System.out.println(sum(20));
 
-       product(34);
+       product(100);
        sumOfDigits(3674);
 
     }
@@ -112,7 +114,7 @@ public class Statements {
             for (int k = 0; k < x; k++) {
                 System.out.print("*");
             }
-            System.out.println(""); 
+            System.out.println("");
         }
     }
 
@@ -124,10 +126,9 @@ public class Statements {
         return sum;
     }
     public static void product(int n){
-        int pr = 1;
-        for(int i = 10; i <= n && i < 99; i++){
-            if(isEven(i))
-                pr *= i;
+        BigInteger pr = new BigInteger("1");
+        for(int i = 10; i <= n&& i < 99; i += 2){
+            pr = pr.multiply(BigInteger.valueOf(i));
         }
         System.out.println("product is: " + pr);
     }

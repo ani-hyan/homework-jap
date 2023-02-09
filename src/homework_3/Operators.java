@@ -83,6 +83,7 @@ public class Operators {
 
         int u1 = 10;
         int k1 = 5;
+        //u1 = u1^k1^(k1=u1);
         u1 = u1 - k1;
         k1 = u1 + k1;
         u1 = k1 - u1;
