@@ -4,63 +4,85 @@ import java.util.Scanner;
 
 public class Arrays {
     public static void main(String[] args) {
-//        int[] a = {3,2,6,9,2,5};
-//        print(a);
-//
-//        short[] b = {2,8,-3,78,231};
-//        printReverse(b);
-//
-//        long[] l = {345678, 32, 3987689, -5, 0};
-//        theLargest(l);
-//
-//        float[] f = {4.f, 422, 54321.87f, -67987};
-//        theSmallest(f);
-//
-//        int[] m = replace(a);
-//        for (int i = 0; i < m.length; i++) {
-//            System.out.print(m[i] + ", ");
-//        }
-//        System.out.println();
-//
-//        int[] arr = sum();
-//        for (int i = 0; i < arr.length; i++) {
-//            System.out.print(arr[i] + ", ");
-//        }
-//        System.out.println();
-//        System.out.println(numberOf(a, 2));
-//
-//        System.out.println("=========");
-//        System.out.print("Array: ");
-//        print(a);
-//        sort(a);
-//        System.out.print("Sorted array: ");
-//        print(a);
-//
-//        System.out.println("Odds in the end:");
-//        odd(a);
-//        print(a);
-//
-//        System.out.println("Without zero element: ");
-//        int[] z = {0,3,10,3,1,0,0,3,0};
-//        z = noZero(z);
-//        print(z);
-//
-//        int[] array = {1,1,0,0,1,1};
-//        System.out.println(toDecimal(array));
+        int[] a = {3,2,6,9,2,5};
+        print(a);
 
-//        int[][] matrix = {{1,2,3,4},{5,6,7,8},{9,10,11,12},{13,14,15,16}};
-//        upperMatrix(matrix);
-//        transpose(matrix);
-//        for (int i = 0; i < matrix.length; i++) {
-//            for (int j = 0; j < matrix.length; j++) {
-//                System.out.print(matrix[j][i] + " ");
-//            }
-//            System.out.println();
-//        }
+        short[] b = {2,8,-3,78,231};
+        printReverse(b);
 
-        int[][] m = {{1,1,0,0}, {2,-2,1,-1}, {9,7,1,-17}};
-        zeroRow(m);
+        long[] l = {345678, 32, 3987689, -5, 0};
+        theLargest(l);
+
+        float[] f = {4.f, 422, 54321.87f, -67987};
+        theSmallest(f);
+
+        int[] m = replace(a);
+        for (int i = 0; i < m.length; i++) {
+            System.out.print(m[i] + ", ");
+        }
+        System.out.println();
+
+        int[] arr = sum();
+        for (int i = 0; i < arr.length; i++) {
+            System.out.print(arr[i] + ", ");
+        }
+        System.out.println();
+        System.out.println(numberOf(a, 2));
+
+        System.out.println("=========");
+        System.out.print("Array: ");
+        print(a);
+        sort(a);
+        System.out.print("Sorted array: ");
+        print(a);
+
+        System.out.println("Odds in the end:");
+        odd(a);
+        print(a);
+
+        System.out.println("Without zero element: ");
+        int[] z = {0,3,10,3,1,0,0,3,0};
+        z = noZero(z);
+        print(z);
+
+
+        int[][] matrix = {{1,2,3,4},{5,6,7,8},{9,10,11,12},{13,14,15,16}};
+        upperMatrix(matrix);
+        transpose(matrix);
+        for (int i = 0; i < matrix.length; i++) {
+            for (int j = 0; j < matrix.length; j++) {
+                System.out.print(matrix[j][i] + " ");
+            }
+            System.out.println();
+        }
+
+        int[][] k = {{1,1,0,0}, {2,-2,1,-1}, {9,7,1,-17}};
+        zeroRow(k);
+
+
+
+        int[] array = {1,1,0,0,1,0};
+        System.out.println(toDecimal(array));
     }
+
+    public static int toDecimal(int[] arr){
+        int n = 0;
+        int i = 0;
+        for (; i<arr.length; i++){
+            if(arr[i] == 1){
+                int power = 1;
+                int j = arr.length-i-1;
+                while(j > 0){
+                    power *= 2;
+                    j--;
+                }
+                n += power;
+            }
+        }
+        return n;
+    }
+
+
 
     //prints the array
     public static void print(int[] arr){
@@ -70,6 +92,7 @@ public class Arrays {
     }
 
     //տպում է int[] n  array-ի դրական տարրերը
+
     public static void printPositive(int[] arr){
         for(int i = 0; i < arr.length; i++){
             if(arr[i] > 0)
@@ -77,7 +100,6 @@ public class Arrays {
         }
         System.out.println();
     }
-
 
     //տպում է short[] s  array-ի էլեմենտները հակառակ հերթականությամբ
     public static void printReverse(short[] arr){
@@ -140,6 +162,7 @@ public class Arrays {
     }
 
     //հաշվում է թե քանի անգամ է  k թիվը հանդիպել array-ի  Էլեմենտների մեջ
+
     public static int numberOf(int[] a, int k){
         int n = 0;
         for (int i = 0; i < a.length; i++){
@@ -148,7 +171,6 @@ public class Arrays {
         }
         return n;
     }
-
     //TODO 8
 
     //անդամները նվազման կարգով
@@ -174,8 +196,8 @@ public class Arrays {
             i++;
         }
     }
-
     //TODO change
+
     //հեռացնել բոլոր զրոները
     public static int[] noZero(int[] a){
         int j = 0;
@@ -195,23 +217,7 @@ public class Arrays {
     }
 
     //TODO 12
-
     //արտածել arr 10-ական ներկայացումը
-    public static int toDecimal(int[] arr){
-        int n = 0;
-        for (int i = 0; i<arr.length; i++){
-            if(arr[i] == 1){
-                int power = 1;
-                int j = i;
-                while(j > 0){
-                    power *= 2;
-                    j--;
-                }
-                n += power;
-            }
-        }
-        return n;
-    }
 
     public static void upperMatrix(int[][] arr){
         for(int i = 0; i < arr.length; i++){
@@ -239,7 +245,7 @@ public class Arrays {
             for (int j = 0; j < arr[i].length; j++) {
                 sum += arr[i][j];
             }
-            if(sum != 0){
+            if(sum %2 != 0){
                 System.out.println("no");
                 return;
             }
