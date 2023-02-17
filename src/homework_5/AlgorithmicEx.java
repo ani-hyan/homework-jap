@@ -6,30 +6,34 @@ import java.util.Scanner;
 public class AlgorithmicEx {
     static Scanner sc = new Scanner(System.in);
     public static void main(String[] args){
+        AlgorithmicEx ob = new AlgorithmicEx();
 
-        multTable();
-        System.out.println(power());
-        System.out.println(recursive(5, 0));
-        System.out.println(reverse());
-        System.out.println(isPrime());
-        add();
-        numberOf();
-        largestSmallest();
-        armstrong();
-        System.out.println(sumOfSeries1());
-        System.out.println(sumOfSeries2());
-        guess();
-        rectangle(5);
-        triangle1(5);
-        triangle2(5);
-        triangle3(5);
-        triangle4(5);
-        triangle5(5);
-        System.out.println(sin(1,10));
-        System.out.println(cos(1,4));
+        ob.multTable();
+        System.out.println(ob.power());
+        System.out.println(ob.recursive(5, 0));
+        System.out.println(ob.reverse());
+        System.out.println(ob.isPrime());
+        ob.add();
+        ob.numberOf();
+        ob.largestSmallest();
+        ob.armstrong();
+        System.out.println(ob.sumOfSeries1());
+        System.out.println(ob.sumOfSeries2());
+        ob.guess();
+        ob.rectangle(5);
+        ob.triangle1(5);
+        ob.triangle2(5);
+        ob.triangle3(5);
+        ob.triangle4(5);
+        ob.triangle5(5);
+        System.out.println(ob.sin(1,10));
+        System.out.println(ob.cos(1,4));
     }
 
-    public static void multTable(){
+    /**
+     * prints the multiplication table
+     */
+    public void multTable(){
         int m = sc.nextInt();
         while(m < 0){
             System.out.println("enter positive number!");
@@ -40,7 +44,11 @@ public class AlgorithmicEx {
             System.out.println(m + " * " + i + " = " + m*i);
     }
 
-    public static int power(){
+    /**
+     *
+     * @return
+     */
+    public  int power(){
         System.out.println("enter two numbers: ");
         int a = sc.nextInt();
         int b = sc.nextInt();
@@ -53,14 +61,14 @@ public class AlgorithmicEx {
         }
         return k;
     }
-    public static int recursive(int a, int b){
+    public int recursive(int a, int b){
         if(b < 1)
             return 1;
         else
             return a * recursive(a, --b);
     }
 
-    public static int reverse(){
+    public int reverse(){
         System.out.println("input your number: ");
         int a = sc.nextInt();
         int reverse = 0;
@@ -71,7 +79,7 @@ public class AlgorithmicEx {
         return reverse/10;
     }
 
-    public static boolean isPrime(){
+    public boolean isPrime(){
         System.out.println("checking if the number is prime: ");
         int n = sc.nextInt();
         int i = 2;
@@ -83,7 +91,7 @@ public class AlgorithmicEx {
         return true;
     }
 
-    public static void add(){
+    public void add(){
         boolean b = false;
         do{
             System.out.println("enter two numbers: ");
@@ -96,7 +104,7 @@ public class AlgorithmicEx {
         while (b == true);
     }
 
-    public static void numberOf(){
+    public void numberOf(){
         int n = 0;
         int positive = 0;
         int negative = 0;
@@ -119,7 +127,7 @@ public class AlgorithmicEx {
         System.out.println("zero: " + zero);
     }
 
-    public static void largestSmallest(){
+    public void largestSmallest(){
         boolean b = false;
         int smallest = Integer.MAX_VALUE;
         int largest = Integer.MIN_VALUE;
@@ -141,7 +149,7 @@ public class AlgorithmicEx {
 
     }
 
-    public static void armstrong(){
+    public void armstrong(){
         for (int i = 0; i< 500; i++) {
             int check = 0;
             int  rem = 0;
@@ -157,7 +165,7 @@ public class AlgorithmicEx {
         }
     }
 
-    public static double sumOfSeries1(){
+    public double sumOfSeries1(){
         System.out.println("enter the number: ");
         int n = sc.nextInt();
         double sum = 0;
@@ -167,7 +175,7 @@ public class AlgorithmicEx {
         return sum;
     }
 
-    public static double sumOfSeries2(){
+    public double sumOfSeries2(){
         System.out.println("enter the number: ");
         int n = sc.nextInt();
         double sum = 0;
@@ -180,7 +188,7 @@ public class AlgorithmicEx {
         return sum;
     }
 
-    public static void guess(){
+    public void guess(){
         Random rd = new Random();
         Scanner sc = new Scanner(System.in);
         int n = rd.nextInt();
@@ -201,7 +209,7 @@ public class AlgorithmicEx {
         System.out.println("Success!");
     }
 
-    public static void rectangle(int n){
+    public void rectangle(int n){
         for(int i = 0; i < n; i++){
             for(int j = 0; j < n; j++)
                 System.out.print("*");
@@ -209,7 +217,7 @@ public class AlgorithmicEx {
         }
     }
 
-    public static void triangle1(int n){
+    public void triangle1(int n){
         for(int i = 0; i <= n; i++){
             for(int k = 0; k < i; k++)
                 System.out.print("*");
@@ -217,7 +225,7 @@ public class AlgorithmicEx {
         }
     }
 
-    public static void triangle2(int n){
+    public void triangle2(int n){
         for (int i = 0; i<n; i++){
             for(int k = n-i; k > 0; k--){
                 System.out.print(" ");
@@ -228,7 +236,7 @@ public class AlgorithmicEx {
         }
     }
 
-    public static void triangle3(int n){
+    public void triangle3(int n){
         for(int i = 0; i < n; i++){
             for(int j = 0; j < n-i; j++){
                 System.out.print(" ");
@@ -240,7 +248,7 @@ public class AlgorithmicEx {
         }
     }
 
-    public static void triangle4(int n){
+    public void triangle4(int n){
         for(int i = 1; i <= n; i++){
             for(int j = 1; j <= n-i; j++){
                 System.out.print(" ");
@@ -255,7 +263,7 @@ public class AlgorithmicEx {
         }
     }
 
-    public static void triangle5(int n){
+    public void triangle5(int n){
         for(int i = 1; i <= n; i++){
             for(int j = 1; j <= n-i; j++){
                 System.out.print(" ");
@@ -273,7 +281,7 @@ public class AlgorithmicEx {
     /*
     sinx = x - x^3/3! + x^5/5! - x^7/7!...
        */
-    public static double sin(int x, int n){
+    public double sin(int x, int n){
         double result = 0.0;
         int sign = -1;
 
@@ -290,7 +298,7 @@ public class AlgorithmicEx {
         return result;
     }
 
-    public static double cos(int x, int n){
+    public double cos(int x, int n){
         double result = 1;
         int sign = -1;
 

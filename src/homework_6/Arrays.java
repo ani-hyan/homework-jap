@@ -4,49 +4,53 @@ import java.util.Scanner;
 
 public class Arrays {
     public static void main(String[] args) {
-        int[] a = {3,2,6,9,2,5};
-        print(a);
+//        int[] a = {3,2,6,9,2,5};
+//        print(a);
+//
+//        short[] b = {2,8,-3,78,231};
+//        printReverse(b);
+//
+//        long[] l = {345678, 32, 3987689, -5, 0};
+//        theLargest(l);
+//
+//        float[] f = {4.f, 422, 54321.87f, -67987};
+//        theSmallest(f);
+//
+//        int[] m = replace(a);
+//        for (int i = 0; i < m.length; i++) {
+//            System.out.print(m[i] + ", ");
+//        }
+//        System.out.println();
+//
+//        int[] arr = sum();
+//        for (int i = 0; i < arr.length; i++) {
+//            System.out.print(arr[i] + ", ");
+//        }
+//        System.out.println();
+//        System.out.println(numberOf(a, 2));
+//
+//        System.out.println("=========");
+//        System.out.print("Array: ");
+//        print(a);
+//        sort(a);
+//        System.out.print("Sorted array: ");
+//        print(a);
+//
+//        System.out.println("Odds in the end:");
+//        odd(a);
+//        print(a);
+//
+//        System.out.println("Without zero element: ");
+//        int[] z = {0,3,10,3,1,0,0,3,0};
+//        z = noZero(z);
+//        print(z);
 
-        short[] b = {2,8,-3,78,231};
-        printReverse(b);
 
-        long[] l = {345678, 32, 3987689, -5, 0};
-        theLargest(l);
-
-        float[] f = {4.f, 422, 54321.87f, -67987};
-        theSmallest(f);
-
-        int[] m = replace(a);
-        for (int i = 0; i < m.length; i++) {
-            System.out.print(m[i] + ", ");
-        }
-        System.out.println();
-
-        int[] arr = sum();
-        for (int i = 0; i < arr.length; i++) {
-            System.out.print(arr[i] + ", ");
-        }
-        System.out.println();
-        System.out.println(numberOf(a, 2));
-
-        System.out.println("=========");
-        System.out.print("Array: ");
-        print(a);
-        sort(a);
-        System.out.print("Sorted array: ");
-        print(a);
-
-        System.out.println("Odds in the end:");
-        odd(a);
-        print(a);
-
-        System.out.println("Without zero element: ");
-        int[] z = {0,3,10,3,1,0,0,3,0};
-        z = noZero(z);
-        print(z);
-
-
-        int[][] matrix = {{1,2,3,4},{5,6,7,8},{9,10,11,12},{13,14,15,16}};
+        int[][] matrix = {
+                {1,2,3,4},
+                {5,6,7,8},
+                {9,10,11,12},
+                {13,14,15,16}};
         upperMatrix(matrix);
         transpose(matrix);
         for (int i = 0; i < matrix.length; i++) {
@@ -56,13 +60,14 @@ public class Arrays {
             System.out.println();
         }
 
-        int[][] k = {{1,1,0,0}, {2,-2,1,-1}, {9,7,1,-17}};
-        zeroRow(k);
+//        int[][] k = {{1,1,0,0}, {2,-2,1,-1}, {9,7,1,-17}};
+//        zeroRow(k);
+//
+//
+//
+//        int[] array = {1,1,0,0,1,0};
+//        System.out.println(toDecimal(array));
 
-
-
-        int[] array = {1,1,0,0,1,0};
-        System.out.println(toDecimal(array));
     }
 
     public static int toDecimal(int[] arr){
@@ -221,22 +226,20 @@ public class Arrays {
 
     public static void upperMatrix(int[][] arr){
         for(int i = 0; i < arr.length; i++){
-            for(int j = 0; j < arr[i].length; j++){
-                if(i+j < arr.length-1)
+            for(int j = i+1; j < arr[i].length; j++){
+
                     System.out.println(arr[i][j]);
             }
         }
     }
 
     public static void transpose(int[][] arr){
-        int[][] temp = new int[arr.length][arr.length];
         for (int i = 0; i < arr.length; i++) {
-            for (int j = 0; j < arr[i].length; j++) {
-                temp[i][j] = arr[j][i];
+            for (int j = i+1; j < arr[i].length; j++) {
+                arr[i][j] = arr[i][j] ^ arr[j][i] ^ (arr[j][i] = arr[i][j]);
             }
 
         }
-        arr = temp;
     }
 
     public static void zeroRow(int[][] arr){
