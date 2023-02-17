@@ -1,6 +1,0 @@
-# ignore ALL .xml files
-*.xml
-*.iml
-*.gitignore
-# ignore ALL files in ANY directory named temp
-out/
