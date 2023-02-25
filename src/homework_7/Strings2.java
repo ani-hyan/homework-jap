@@ -1,42 +1,48 @@
-package homework_8;
+package homework_7;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
 
+//ppx -> palindrome todo
+
 public class Strings2 {
     public static void main(String[] args) {
         Strings2 obj = new Strings2();
 
-        //1.
-        System.out.println(obj.ozChar("ozymandias"));
+//        //1.
+//        System.out.println(obj.ozChar("ozymandias"));
+//
+//        //2.
+//        System.out.println(obj.numberOfXX("xxaxdxx"));
+//
+//        //3.
+//        System.out.println(obj.isPalindrome("abcba"));
+//
+//        //4.
+//        String[] a = obj.listOfStrings("a23", "adwad", "ddwew", "232", "ada");
+//        for (String s: a)
+//            System.out.print(s + ", ");
+//        System.out.println();
+//
+//        //5.
+//        System.out.println(obj.evenOdd(new int[]{12,21,1,2,3}));
+//
+//        //6.
+//        System.out.println(obj.deCoding("cza", 5));
+//
+//        //8.
+//        System.out.println(obj.commonSubsequence("abdcommondecommona","ascommoncommon"));
+//
+//        //9.
+//        System.out.println(obj.numberOfCommonCharacters("abcqewrq","dgaudgaiabc"));
+//
+//        //10.
+//       System.out.println(obj.reverseCharInParentheses("foo(bar(baz)blim)"));
 
-        //2.
-        System.out.println(obj.numberOfXX("xxaxdxx"));
+       //additional
+        System.out.println(obj.canFormPalindrome("aabbc"));
 
-        //3.
-        System.out.println(obj.isPalindrome("abcba"));
-
-        //4.
-        String[] a = obj.listOfStrings("a23", "adwad", "ddwew", "232", "ada");
-        for (String s: a)
-            System.out.print(s + ", ");
-        System.out.println();
-
-        //5.
-        System.out.println(obj.evenOdd(new int[]{12,21,1,2,3}));
-
-        //6.
-        System.out.println(obj.deCoding("cza", 5));
-
-        //8.
-        System.out.println(obj.commonSubsequence("ascommon", "abdcommonde"));
-
-        //9.
-        System.out.println(obj.numberOfCommonCharacters("abcqewrq","dgaudgaiabc"));
-
-        //10.
-       System.out.println(obj.reverseCharInParentheses("foo(bar(baz))blim"));
     }
 
     /**
@@ -220,6 +226,28 @@ public class Strings2 {
             stringB.deleteCharAt(j);
         }
         return stringB.toString();
+    }
+
+    /**
+     * Check if characters of a given string can be rearranged to form a palindrome
+     */
+
+    boolean canFormPalindrome(String str){
+        List<Character> list = new ArrayList<>();
+
+        for(int i = 0; i<str.length(); i++){
+            if(list.contains((Character)str.charAt(i)))
+                list.remove((Character)str.charAt(i));
+            else
+                list.add(str.charAt(i));
+        }
+
+        if(str.length() %2 == 0 && list.isEmpty())
+            return true;
+        else if(str.length() % 2 == 1 && list.size() == 1)
+            return true;
+        else
+            return false;
     }
 
 }

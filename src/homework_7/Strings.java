@@ -74,7 +74,9 @@ public class Strings {
         System.out.println("=======");
         String split = "We, are, living, in an, yellow, submarine, We";
         System.out.println("longest: " + obj.theLongestSubString2(split));
+
     }
+
 
     /**
      * 1.կատարում է String concatenation օգտագործելով String
