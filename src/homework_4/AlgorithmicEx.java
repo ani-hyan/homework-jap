@@ -4,13 +4,29 @@ import java.util.Random;
 
 public class AlgorithmicEx {
     public static void main(String[] args) {
-        System.out.println(primeFactor(64));
-        System.out.println(randomIsEven());
-        random();
-        System.out.println(rice(2,3,9));
+        AlgorithmicEx obj = new AlgorithmicEx();
+        //1.
+        System.out.println(obj.primeFactor(64));
+
+        //2.
+        System.out.println(obj.randomIsEven());
+
+        //3.
+        obj.random();
+
+        //4.
+        System.out.println(obj.rice(2,3,9));
     }
 
-    public static boolean rice(int small, int big, int goal){
+    /**
+     * 1.1.	Provided that you have a given number of small rice bags (1 kilo each) and big rice bags (5 kilos each),
+     * write a method that returns true if it is possible to make a package with goal kilos of rice
+     * @param small
+     * @param big
+     * @param goal
+     * @return
+     */
+    boolean rice(int small, int big, int goal){
         if(small + big*5 <  goal)
             return false;
         else if(big*5 >= goal){
@@ -22,7 +38,12 @@ public class AlgorithmicEx {
         return true;
     }
 
-    public static int primeFactor(int n) {
+    /**
+     * 2. Write a method that calculates the largest prime factor of a given number.
+     * @param n
+     * @return
+     */
+    int primeFactor(int n) {
         if(n <= 1)
             return 1;
         int i = 2;
@@ -39,14 +60,25 @@ public class AlgorithmicEx {
     }
 
 
-    public static boolean randomIsEven() {
+    /**
+     * 3.Write a program that generates a random number between 1 and 100
+     * (you can use the Random ( ) method from the Math class.
+     * the next step check whether it is an even or an odd number.
+     * @return
+     */
+    boolean randomIsEven() {
         Random rd = new Random();
         int n = rd.nextInt(101);
         System.out.println("random number is: " + n);
         System.out.print("is even: ");
         return n % 2 == 0;
     }
-    public static void random() {
+
+    /**
+     * 4.Write a program that will use the while loop to find the largest
+     * and smallest number from the set of 10 randomly drawn integers from 1 to 100.
+     */
+    void random() {
         Random rd = new Random();
         int smallest = rd.nextInt(101);
         int largest = rd.nextInt(101);
